@@ -1,26 +1,13 @@
 package cr.ac.tec.BuildATree.TreesStructure.AVL;
 
+import cr.ac.tec.BuildATree.TreesStructure.BST.BSNode;
+
 public class AVLTree {
 
     public AVLNode root;
 
     public AVLTree(){
         this.root = null;
-    }
-
-    public AVLNode buscar (int num, AVLNode node){
-        if (this.root == null){
-            return null;
-        }
-        else if (node.num == num) {
-            return node;
-        }
-        else if(node.num<num){
-            return buscar(num, node.rightChildren);
-        }
-        else{
-            return buscar(num, node.leftChildren);
-        }
     }
 
     private int getBFactor(AVLNode node){
@@ -133,13 +120,17 @@ public class AVLTree {
 
     }
 
-    public void printTree(AVLNode node){
+    public String printAVLTree(AVLNode node){
         if(node!=null){
-            printTree(node.leftChildren);
-            System.out.println(node.num+",");
-            printTree(node.rightChildren);
+            //    printTree(node.leftChildren);
+            //  System.out.println(node.num+",");
+            //printTree(node.rightChildren);
+            return ""+node.num+"("+printAVLTree(node.leftChildren)+"/"+printAVLTree(node.rightChildren)+")";
         }
-    }
+        else{
+            return "";
+        }
 
 
+}
 }
