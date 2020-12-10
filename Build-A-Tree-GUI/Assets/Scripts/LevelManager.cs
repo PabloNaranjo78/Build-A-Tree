@@ -8,6 +8,7 @@ public class LevelManager : MonoBehaviour
 
     public float respawnDelay;
     public PlayerControler gamePlayer;
+    public CoinScript gameCoin;
     public int coins;
     public Text coinText;
 
@@ -16,6 +17,7 @@ public class LevelManager : MonoBehaviour
     void Start()
     {
         gamePlayer = FindObjectOfType<PlayerControler> ();
+        gameCoin = FindObjectOfType<CoinScript> ();
         coinText.text = "Score: " + coins;
     }
 
@@ -25,17 +27,30 @@ public class LevelManager : MonoBehaviour
         
     }
 
-    public void Respawn() {
-        StartCoroutine("RespawnCoroutine");
+    public void RespawnP() {
+        StartCoroutine("RespawnCoroutineP");
     }
 
-    public IEnumerator RespawnCoroutine() {
+    public void RespawnC() {
+        StartCoroutine("RespawnCoroutineC");
+    }
+
+    public IEnumerator RespawnCoroutineP() {
         gamePlayer.gameObject.SetActive (false);
         yield return new WaitForSeconds (respawnDelay);
         gamePlayer.transform.position = gamePlayer.respawnPoint;
         gamePlayer.gameObject.SetActive (true);
     }
 
+    public IEnumerator RespawnCoroutineC() {
+        gameCoin.gameObject.SetActive (false);
+        yield return new WaitForSeconds (respawnDelay);
+        gameCoin.transform.position = gamePlayer.respawnPoint;
+        gameCoin.gameObject.SetActive (true);
+    }
+
+
+//Coin Counter
     public void AddCoins(int numberOfCoins) {
         coins += numberOfCoins;
         coinText.text = "Score: " + coins;

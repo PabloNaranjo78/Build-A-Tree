@@ -24,7 +24,8 @@ public class CoinScript : MonoBehaviour
     {
         if (other.tag == "Player"){
             gameLevelManager.AddCoins(coinValue);
-            Destroy(gameObject);
+            //Destroy(gameObject);
+            gameLevelManager.RespawnC();
         }
 
     } 

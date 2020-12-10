@@ -61,7 +61,7 @@ public class PlayerControler : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other){
         //Respawn al tocar el fall detector
         if(other.tag == "FallDetector"){
-            gameLevelManager.Respawn();
+            gameLevelManager.RespawnP();
         }
         //Actualiza al ultimo checkpoint
         if(other.tag == "Checkpoint") {
