@@ -7,6 +7,7 @@ public class CoinScript : MonoBehaviour
 {
     private LevelManager gameLevelManager;
     public int coinValue;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +28,8 @@ public class CoinScript : MonoBehaviour
             //Destroy(gameObject);
             gameLevelManager.RespawnC();
         }
-
+        if(other.tag == "FallDetector"){
+            gameLevelManager.RespawnC();
+        }
     } 
 }
