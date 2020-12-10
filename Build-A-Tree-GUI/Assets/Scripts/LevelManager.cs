@@ -9,14 +9,9 @@ public class LevelManager : MonoBehaviour
     public float respawnDelay;
     public PlayerControler gamePlayer;
     public CoinScript gameCoin;
-    public CheckPointController1 gameCP1;
-    public CheckPointController2 gameCP2;
-    public CheckPointController3 gameCP3;
-    public CheckPointController4 gameCP4;
-    public CheckPointController5 gameCP5;
     public int coins;
     public Text coinText;
-    private int spawnPosition;
+    private int rndC;
 
 
     // Start is called before the first frame update
@@ -24,11 +19,6 @@ public class LevelManager : MonoBehaviour
     {
         gamePlayer = FindObjectOfType<PlayerControler> ();
         gameCoin = FindObjectOfType<CoinScript> ();
-        gameCP1 = FindObjectOfType<CheckPointController1> ();
-        gameCP2 = FindObjectOfType<CheckPointController2> ();
-        gameCP3 = FindObjectOfType<CheckPointController3> ();
-        gameCP4 = FindObjectOfType<CheckPointController4> ();
-        gameCP5 = FindObjectOfType<CheckPointController5> ();
         coinText.text = "Score: " + coins;
     }
 
@@ -54,31 +44,12 @@ public class LevelManager : MonoBehaviour
     }
 
     public IEnumerator RespawnCoroutineC() {
-        Debug.Log("Yep");
-        spawnPosition = Random.Range(1,5);
-        Debug.Log(spawnPosition);
+        rndC = Random.Range(-30,31);
         gameCoin.gameObject.SetActive (false);
         yield return new WaitForSeconds (respawnDelay);
-        //gameCoin.transform.position = gamePlayer.respawnPoint;
-        /*
-        if (spawnPosition == 1) {
-            gameCoin.transform.position = gameCP1.respawnPoint1;
-        }
-        if (spawnPosition == 2) {
-            gameCoin.transform.position = gameCP2.respawnPoint2;
-        }
-        if (spawnPosition == 3) {
-            gameCoin.transform.position = gameCP3.respawnPoint3;
-        }
-        if (spawnPosition == 4) {
-            gameCoin.transform.position = gameCP4.respawnPoint4;
-        }
-        if (spawnPosition == 5) {
-            gameCoin.transform.position = gameCP5.respawnPoint5;
-        }
-        */
+        gameCoin.transform.position = new Vector3(rndC,23,0);
+
         gameCoin.gameObject.SetActive (true);
-        //spawnPosition = Random.Range(1,6);
     }
 
 
