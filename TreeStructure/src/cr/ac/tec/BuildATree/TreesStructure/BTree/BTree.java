@@ -1,6 +1,4 @@
 package cr.ac.tec.BuildATree.TreesStructure.BTree;
 
-public class BNode {
-
-
+public class BTree {
 }
