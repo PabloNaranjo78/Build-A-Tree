@@ -53,9 +53,8 @@ public class BSTree {
             return ""+node.num+"( "+printBSTree(node.leftChildren)+"/"+printBSTree(node.rightChildren)+" )";
         }
         else{
-            return "";
+            return "*";
         }
     }
-
 
 }
