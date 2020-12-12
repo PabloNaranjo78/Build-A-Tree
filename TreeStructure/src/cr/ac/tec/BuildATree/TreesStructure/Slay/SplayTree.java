@@ -127,6 +127,11 @@ public class SplayTree {
             }
         }
     }
+
+    public String print(){
+        return printSplayTree(root);
+    }
+
     public String printSplayTree(SplayNode node){
         if(node!=null){
             return ""+node.num+"("+printSplayTree(node.rightChildren)+ "/"+ printSplayTree(node.leftChildren)+")";

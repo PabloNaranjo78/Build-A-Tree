@@ -120,7 +120,11 @@ public class AVLTree {
 
     }
 
-    public String printAVLTree(AVLNode node){
+    public String print(){
+        return printAVLTree(root);
+    }
+
+    private String printAVLTree(AVLNode node){
         if(node!=null){
             return ""+node.num+"("+printAVLTree(node.leftChildren)+"/"+printAVLTree(node.rightChildren)+")";
         }

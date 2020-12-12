@@ -3,7 +3,7 @@ package cr.ac.tec.BuildATree.TreesStructure.BTree;
 public class Btree {
 
     public BNode root;
-    Btree() {
+    public Btree() {
         // new root
         root = new BNode();
         // assign the root node to be a isLeaf

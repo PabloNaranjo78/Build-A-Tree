@@ -2,6 +2,7 @@ package cr.ac.tec.BuildATree.TreesStructure.ServerSocket;
 
 
 import cr.ac.tec.BuildATree.TreesStructure.Printer.BTreePrinter;
+import cr.ac.tec.BuildATree.TreesStructure.TreeManager.TreeManager;
 
 import java.io.*;
 import java.net.ServerSocket;
@@ -15,6 +16,7 @@ public class Server {
         final int port = 5000;
         ServerSocket server;
         Socket connection;
+        TreeManager treeManager = new TreeManager();
 
         try {
             System.out.println("Servidor iniciado");
@@ -39,9 +41,8 @@ public class Server {
                 //imprime en pantalla
                 System.out.println("Cliente dijo> " + " = " + received.trim());
 
-                System.out.println("Esriba: ");
                 //captura comando escrito por el usuario
-                String request =  BTreePrinter.printString(imprimi2("5(8(2/3)/9(4/6))"));
+                String request = treeManager.checkEvent(received.trim());
                 //manda al servidor
                 out_data.println(request);
                 //lee respuesta del servidor

@@ -48,6 +48,10 @@ public class BSTree {
         }
     }
 
+    public String print (){
+        return printBSTree(root);
+    }
+
     public String printBSTree(BSNode node){
         if(node!=null){
             return ""+node.num+"( "+printBSTree(node.leftChildren)+"/"+printBSTree(node.rightChildren)+" )";
