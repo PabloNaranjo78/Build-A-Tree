@@ -6,6 +6,9 @@ public class AVLTree {
 
     public AVLNode root;
 
+    /***
+     * Constructor de Arbol AVL
+     */
     public AVLTree(){
         this.root = null;
     }
@@ -21,6 +24,11 @@ public class AVLTree {
 
     //Rotaciones
 
+    /***
+     * Realiza rotación hacia la izquierada
+     * @param node el nodo al que se quiere rotar
+     * @return retorna el nodo rotado
+     */
     private AVLNode leftRotation(AVLNode node){
         AVLNode temp = node.leftChildren;
         node.leftChildren = temp.rightChildren;
@@ -55,6 +63,12 @@ public class AVLTree {
 
     //Insertar
 
+    /***
+     * Busca un lugar en donde insertar el elemento
+     * @param newNode nodo nuevo
+     * @param nextNode el nodo auxiliar para ir realizando las rotaciones
+     * @return
+     */
     private AVLNode insertAVL(AVLNode newNode, AVLNode nextNode){
         AVLNode newParent = nextNode;
         if (newNode.num < nextNode.num){
@@ -106,8 +120,10 @@ public class AVLTree {
         return newParent;
     }
 
-    //Insertar simple
-
+    /***
+     * Inserta un dato, en caso de que el nodo sea nuevo, lo pone en la raiz
+     * @param data
+     */
     public void insertNewElement(int data){
         AVLNode newNode = new AVLNode(data);
 
@@ -120,6 +136,10 @@ public class AVLTree {
 
     }
 
+    /***
+     * método para imprimir
+     * @return llama al método recursivo que imprime y retorna un string
+     */
     public String print(){
         return printAVLTree(root);
     }

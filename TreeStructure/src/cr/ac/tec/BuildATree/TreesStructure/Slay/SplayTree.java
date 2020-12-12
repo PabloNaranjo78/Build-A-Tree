@@ -128,6 +128,10 @@ public class SplayTree {
         }
     }
 
+    /***
+     * Imprime el árbol
+     * @return un string con el árbol
+     */
     public String print(){
         return printSplayTree(root);
     }

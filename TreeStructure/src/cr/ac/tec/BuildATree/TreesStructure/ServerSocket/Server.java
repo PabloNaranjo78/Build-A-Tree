@@ -10,6 +10,9 @@ import java.net.Socket;
 
 import static cr.ac.tec.BuildATree.TreesStructure.Printer.BTreePrinterTest.imprimi2;
 
+/***
+ * Servidor que toma en su entrada la información enviada por C# para la contrucción de árboles
+ */
 public class Server {
 
     public static void main(String[] args) throws IOException {
@@ -39,7 +42,7 @@ public class Server {
                 //convierte a string
                 String received = new String(bytes, "UTF-8");
                 //imprime en pantalla
-                System.out.println("Cliente dijo> " + " = " + received.trim());
+                System.out.println("Cliente = " + received.trim());
 
                 //captura comando escrito por el usuario
                 String request = treeManager.checkEvent(received.trim());

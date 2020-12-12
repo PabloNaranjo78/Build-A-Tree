@@ -3,23 +3,19 @@ package cr.ac.tec.BuildATree.TreesStructure.BTree;
 public class Btree {
 
     public BNode root;
+
+    /**
+     * Constructor de árbol B
+     */
     public Btree() {
-        // new root
         root = new BNode();
-        // assign the root node to be a isLeaf
         root.isLeaf = true;
         root.numberOfNodes = 0;
-        // initial the key value in the root to -1 (null)
         root.key[0] = -1;
     }
 
     /**
-     * The Insert Method:
-     * This method insert a key k into a B Tree.
-     * The insert method takes one argument
-     * The run time of the Insert Method is O(t log n)
-     *
-     * @param k is the key that will be inserted into the node in the B Tree
+     *Método principal para insertar elementos
      */
     public void insert(int k)
     {
@@ -38,15 +34,10 @@ public class Btree {
         }
     }
 
-    /**
-     * The Insert in none full node Method:
-     * This method insert a key k into a node that is already full.
-     * The insert method takes two arguments: Node x, and integer k as a value
-     * The run time of the Insert in None Full Node algorithm is: O(t log n).
-     *
-     *
-     * @param node that the value will be inserted in.
-     * @param value the value to be inserted
+    /***
+     * En caso de que aún no esté lleno una hoja, se inserta con este método.
+     * @param node Nodo nuevo
+     * @param value valor a insertar
      */
     public void insertNonfull(BNode node, int value) {
         int i = node.numberOfNodes;
@@ -73,17 +64,10 @@ public class Btree {
     }
 
     /**
-     * The Split Child Method
-     * It takes three arguments: Node x, int i, Node y
-     * The Basic idea of split child is: if we want to insert a key value into a node we should
-     * check if the node is not full ( node can have at most 2*t-1 keys). If it is full, then we must
-     * split the node into two node.
-     * The Run Time of splitChild algorithm is: O(t), where t is a constant
-     * Node y: is x’s i th child.
-     *
-     * @param parentNode the Parent Node
-     * @param childIndex The index of the element
-     * @param newChild
+     * Realiza un split a la hoja hija
+     * @param parentNode hoja padre
+     * @param childIndex hoja hija
+     * @param newChild el nuevo dato a insertar
      */
     private void splitChild(BNode parentNode, int childIndex, BNode newChild) {
         BNode z = new BNode();
@@ -108,7 +92,7 @@ public class Btree {
     }
 
     /**
-     * To print the B-Tree
+     * Imprime el árbol
      */
     public String print() {
         return printAux(root);

@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using System.IO;
+using System.Diagnostics;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,6 +11,8 @@ public class LevelManager : MonoBehaviour
     public float respawnDelay;
     public PlayerControler gamePlayer;
     public CoinScript gameCoin;
+
+    private TreeManager tree;
 
     public ForcePushScript gamePUforcepush;
     public AirJumpScript gamePUairjump;
@@ -83,7 +87,7 @@ public class LevelManager : MonoBehaviour
     public void RespawnTbtree() {
         StartCoroutine("RespawnCoroutineTbtree");
     }
-    public void RespawnTsplay() {
+    public void RespawnTsplay() {   
         StartCoroutine("RespawnCoroutineTsplay");
     }
 

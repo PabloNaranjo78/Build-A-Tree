@@ -48,6 +48,10 @@ public class BSTree {
         }
     }
 
+    /***
+     * Imprime el árbol
+     * @return retorna un string con el árbol
+     */
     public String print (){
         return printBSTree(root);
     }

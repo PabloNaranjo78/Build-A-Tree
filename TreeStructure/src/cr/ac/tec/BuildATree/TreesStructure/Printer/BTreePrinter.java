@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/***
+ * Método para imprimir los árboles con un formato más estético
+ */
 public class BTreePrinter {
 
     public static <T extends Comparable<?>> String printString(Node<T> root) {

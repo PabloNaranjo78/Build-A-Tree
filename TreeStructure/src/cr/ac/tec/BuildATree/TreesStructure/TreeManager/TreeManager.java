@@ -14,8 +14,15 @@ public class TreeManager {
     AVLTree player1AVLTree = new AVLTree();
     BSTree player1BSTree = new BSTree();
     SplayTree player1SplayTree = new SplayTree();
-    
+
+    /***
+     * Revisa la entrada del servidor para verificar que acción tomar, B es para árbol B, A para AVL,
+     * S para el BST, P para el Splay y R para reiniciar los árboles
+     * @param data el string con la información del socket
+     * @return retorna el resultado de agregar un dato a un árbol
+     */
     public String checkEvent(String data){
+        try{
         String type = data.substring(0,1);
         System.out.println(data);
         System.out.println(type.equals("B"));
@@ -23,7 +30,6 @@ public class TreeManager {
         int num = Integer.parseInt(data.substring(1,3));
         if (type.equals("B")){
             player1Btree.insert(num);
-            System.out.println(player1Btree.print());
             return player1Btree.print();
         }else if (type.equals("A")){
             player1AVLTree.insertNewElement(num);
@@ -44,6 +50,9 @@ public class TreeManager {
         else{
             return "Error";
         }
+    } catch (NumberFormatException e) {
+            e.printStackTrace();
+        }return "Error";
     }
 }
 
